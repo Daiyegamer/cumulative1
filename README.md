@@ -1,4 +1,5 @@
-Data Access and Model Type Description File: A class that connects to the MySQL database and interacts with the Teachers table.
+Added Data Access and Model Type Description File: A class that connects to the MySQL database and interacts with the Teachers table.
+
 File: /Models/SchoolDbContext.cs Model: Represents a teacher, including properties that map to the database fields for teachers.
 
 File: /Models/Teacher.cs 2. Controllers Web API Controller: Allows access to information about teachers via API endpoints for CRUD operations.
