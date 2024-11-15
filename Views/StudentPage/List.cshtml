@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Cumulative1.Models.Student>
+
+<div style="background-color: midnightblue; padding: 1em 0;">
+    <h1 style="font-size: 48px; color: lightcyan; text-align: center; margin: 0;">Students</h1>
+</div>
+
+@foreach (Cumulative1.Models.Student CurrentStudent in Model)
+{
+    <style>
+        
+        .student-card {
+            text-align: left;
+            margin: 10px;
+            padding: 10px;
+            background-color: lightcyan;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        
+        .student-link {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Link hover effect */
+        .student-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="student-card">
+        <a href="/StudentPage/Show/@CurrentStudent.StudentId" class="Student-link">
+            @CurrentStudent.StudentFName @CurrentStudent.StudentLName
+        </a>
+    </div>
+
+}

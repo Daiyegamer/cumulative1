@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Cumulative1.Models.Teacher>
+
+<div style="background-color: midnightblue; padding: 1em 0;">
+    <h1 style="font-size: 48px; color: lightcyan; text-align: center; margin: 0;">Teachers</h1>
+</div>
+
+@foreach (Cumulative1.Models.Teacher CurrentTeacher in Model)
+{
+    <style>
+        /* Container styling */
+        .teacher-card {
+            text-align: left;
+            margin: 10px;
+            padding: 10px;
+            background-color: lightcyan;
+            background-size:auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Link styling */
+        .teacher-link {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Link hover effect */
+        .teacher-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="teacher-card">
+        <a href="/TeacherPage/Show/@CurrentTeacher.TeacherId" class="teacher-link">
+            @CurrentTeacher.TeacherFName @CurrentTeacher.TeacherLName
+        </a>
+    </div>
+
+}

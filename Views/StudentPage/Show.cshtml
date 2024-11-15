@@ -1,0 +1,45 @@
+﻿@model Cumulative1.Models.Student
+
+<style>
+    
+    .student-name {
+       font-size: 24px;        
+        font-weight: bold;
+        color: lightcyan;
+        text-align: center;
+        margin-bottom: 20px;
+        background-color:darkblue;
+    }
+
+    
+    .student-details {
+        font-size: 18px;
+        color: black;
+        margin: 10px 0;
+    }
+
+   
+    .student-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: lightcyan;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-info {
+        font-weight: bold;
+        color: darkblue;
+    }
+</style>
+
+<div class="student-container">
+    <h1 class="student-name">@Model.StudentFName @Model.StudentLName</h1>
+    <p class="student-details">
+        <span class="student-info">Student Number:</span> @Model.StudentNumber
+    </p>
+    <p class="student-details">
+        <span class="student-info">Enrollment Date:</span> @Model.enroldate.ToString("MMMM dd, yyyy")
+    </p>
+</div>

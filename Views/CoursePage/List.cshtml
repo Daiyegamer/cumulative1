@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Cumulative1.Models.Course>
+
+<div style="background-color: midnightblue; padding: 1em 0;">
+    <h1 style="font-size: 48px; color: lightcyan; text-align: center; margin: 0;">Courses</h1>
+</div>
+@foreach (Cumulative1.Models.Course CurrentCourse in Model)
+{
+    <style>
+        /* Container styling */
+        .course-card {
+            text-align: left;
+            margin: 10px;
+            padding: 10px;
+           background-color: lightcyan;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Link styling */
+        .course-link {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Link hover effect */
+        .course-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="course-card">
+        <a href="/CoursePage/Show/@CurrentCourse.CourseId" class="course-link">
+            @CurrentCourse.CourseName
+        </a>
+    </div>
+
+}
