@@ -57,13 +57,29 @@ Added Layout and Styling Adjustments to Teacher List
 Added Read functionality for Students
 
 Added Read functionality for Courses
+
+
 Added Add and delete funtionality for teachers
+
+
 Added Testing API that adds a Teacher using POST Data and Curl commands
+
+
 Added Testing for  API that deletes a Teacher Using Curl commands
+
+
 Added Testing for  web page that allows a user to enter new Teacher information
+
+
 Added Testing web page that confirms the action to delete a Teacher
+
+
 Added error handling on Delete when trying to delete a teacher that does not exist, Added Testing Screenshots
+
+
 Added Error Handling on Add when the Teacher Name is empty, Added Testing Screenshots
+
 Added  Error Handling on Add when the Teacher Hire Date is in the future, Added Testing Screenshots
+
 Added Error Handling on Add when the Employee Number is already taken by a different Teacher, Added Testing Screenshots
 
