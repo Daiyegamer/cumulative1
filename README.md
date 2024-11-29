@@ -58,6 +58,7 @@ Added Read functionality for Students
 
 Added Read functionality for Courses
 
+CUMULATIVE 2
 
 Added Add and delete funtionality for teachers
 
