@@ -19,120 +19,190 @@ namespace Cumulative1.Controllers
         }
 
         /// <summary>
-        /// Returns a list of Teacher(s) in the system
+        /// Retrieves a list of all teachers in the system.
         /// </summary>
         /// <example>
-        /// retrieve Teacher list GET api/Teacher/ListTeachers
+        /// GET api/TeacherAPI/TeacherList
         /// </example>
-        /// <returns>
-        /// A list of Teacher(s)
-        /// </returns>
+        /// <returns>A list of Teacher objects</returns>
         [HttpGet]
         [Route("TeacherList")]
         public List<Teacher> ListTeachers()
         {
-            // Creating an empty list of Teachers
+            // Initialize an empty list to store teacher records
             List<Teacher> Teachers = new List<Teacher>();
 
-            // 'using' will close the connection after the code runs
+            // Open the database connection using the injected context
             using (MySqlConnection Connection = _context.AccessDatabase())
             {
                 Connection.Open();
 
-                // Create a new query for our DB
+                // Define the SQL query to retrieve all teachers
                 MySqlCommand Command = Connection.CreateCommand();
-                Command.CommandText = "SELECT teachers.*, GROUP_CONCAT(courses.coursename SEPARATOR ', ') AS courses FROM teachers LEFT JOIN courses ON teachers.teacherid = courses.teacherid GROUP BY teachers.teacherid";
+                Command.CommandText = "SELECT * FROM teachers";
 
-                // Gather results of queries into a variable
+                // Execute the query and process the results
                 using (MySqlDataReader ResultSet = Command.ExecuteReader())
                 {
-                    // Loop through each row from the results
                     while (ResultSet.Read())
                     {
-                        // Retrieve column information by the DB column name as an index
-                        int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
-                        string TeacherFName = ResultSet["teacherfname"].ToString();
-                        string TeacherLName = ResultSet["teacherlname"].ToString();
-                        string EmployeeNumber = ResultSet["employeenumber"].ToString();
-                        DateTime hiredate = Convert.ToDateTime(ResultSet["hiredate"]);
-                        double salary = Convert.ToDouble(ResultSet["salary"]);
-                        string Courses = ResultSet["courses"].ToString();
-
-                        // Create a new Teacher object and set properties
+                        // Map the database columns to a Teacher object
                         Teacher CurrentTeacher = new Teacher
                         {
-                            TeacherId = TeacherId,
-                            TeacherFName = TeacherFName,
-                            TeacherLName = TeacherLName,
-                            EmployeeNumber = EmployeeNumber,
-                            hiredate = hiredate,
-                            salary = salary,
-                            Courses = Courses
+                            TeacherId = Convert.ToInt32(ResultSet["teacherid"]),
+                            TeacherFName = ResultSet["teacherfname"].ToString(),
+                            TeacherLName = ResultSet["teacherlname"].ToString(),
+                            EmployeeNumber = ResultSet["employeenumber"].ToString(),
+                            hiredate = Convert.ToDateTime(ResultSet["hiredate"]),
+                            salary = Convert.ToDouble(ResultSet["salary"])
                         };
 
+                        // Add the teacher to the list
                         Teachers.Add(CurrentTeacher);
                     }
                 }
             }
 
-            // Return the final list of teachers
+            // Return the list of teachers
             return Teachers;
         }
 
         /// <summary>
-        /// Returns a Teacher from the DB by their ID
+        /// Finds a teacher by their ID.
         /// </summary>
         /// <example>
-        /// GET api/Teacher/FindTeacher/7
+        /// GET api/TeacherAPI/FindTeacher/7
         /// </example>
-        /// <returns>
-        /// A matching Teacher by their ID. Empty result if teacher not found
-        /// </returns>
+        /// <param name="id">The ID of the teacher</param>
+        /// <returns>The matching Teacher object or null if not found</returns>
         [HttpGet]
         [Route("FindTeacher/{id}")]
         public Teacher FindTeacher(int id)
         {
-            // Create an empty Teacher object
-            Teacher SelectedTeacher = new Teacher();
+            // Initialize a Teacher object to store the result
+            Teacher SelectedTeacher = null;
 
-            // 'using' will close the connection after the code runs
             using (MySqlConnection Connection = _context.AccessDatabase())
             {
                 Connection.Open();
 
-                // Establish a new command (query) for our database
+                // Define the SQL query to find the teacher by ID
                 MySqlCommand Command = Connection.CreateCommand();
-                Command.CommandText = "SELECT teachers.*, GROUP_CONCAT(courses.coursename SEPARATOR ', ') AS courses FROM teachers LEFT JOIN courses ON teachers.teacherid = courses.teacherid WHERE teachers.teacherid = @id GROUP BY teachers.teacherid";
+                Command.CommandText = "SELECT * FROM teachers WHERE teacherid = @id";
                 Command.Parameters.AddWithValue("@id", id);
 
-                // Gather results of the query into a variable
+                // Execute the query and process the result
                 using (MySqlDataReader ResultSet = Command.ExecuteReader())
                 {
-                    // Loop through each row of the result
-                    if (ResultSet.Read()) // using if to get a single teacher based on ID
+                    if (ResultSet.Read())
                     {
-                        int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
-                        string TeacherFName = ResultSet["teacherfname"].ToString();
-                        string TeacherLName = ResultSet["teacherlname"].ToString();
-                        string EmployeeNumber = ResultSet["employeenumber"].ToString();
-                        DateTime hiredate = Convert.ToDateTime(ResultSet["hiredate"]);
-                        double salary = Convert.ToDouble(ResultSet["salary"]);
-                        string Courses = ResultSet["courses"].ToString();
-
-                        // Set properties of the SelectedTeacher object
-                        SelectedTeacher.TeacherId = TeacherId;
-                        SelectedTeacher.TeacherFName = TeacherFName;
-                        SelectedTeacher.TeacherLName = TeacherLName;
-                        SelectedTeacher.EmployeeNumber = EmployeeNumber;
-                        SelectedTeacher.hiredate = hiredate;
-                        SelectedTeacher.salary = salary;
-                        SelectedTeacher.Courses = Courses;
+                        SelectedTeacher = new Teacher
+                        {
+                            TeacherId = Convert.ToInt32(ResultSet["teacherid"]),
+                            TeacherFName = ResultSet["teacherfname"].ToString(),
+                            TeacherLName = ResultSet["teacherlname"].ToString(),
+                            EmployeeNumber = ResultSet["employeenumber"].ToString(),
+                            hiredate = Convert.ToDateTime(ResultSet["hiredate"]),
+                            salary = Convert.ToDouble(ResultSet["salary"])
+                        };
                     }
                 }
             }
 
-            // Return SelectedTeacher
+            // Return the teacher or null if not found
             return SelectedTeacher;
+        }
+
+        /// <summary>
+        /// Adds a new teacher to the database.
+        /// </summary>
+        /// <example>
+        /// POST api/TeacherAPI/AddTeacher
+        /// Content-Type: application/json
+        /// {
+        ///     "TeacherFName": "John",
+        ///     "TeacherLName": "Doe",
+        ///     "EmployeeNumber": "T123",
+        ///     "hiredate": "2024-11-23T00:00:00",
+        ///     "salary": 50000.0
+        /// }
+        /// </example>
+        /// <param name="NewTeacher">The teacher object to add</param>
+        /// <returns>The ID of the newly added teacher</returns>
+        [HttpPost(template: "AddTeacher")]
+        public int AddTeacher([FromBody] Teacher NewTeacher)
+        {
+            // Validate Teacher Name
+            if (string.IsNullOrWhiteSpace(NewTeacher.TeacherFName) || string.IsNullOrWhiteSpace(NewTeacher.TeacherLName))
+            {
+                return -1; // Error code for empty first or last name
+            }
+
+            // Validate Hire Date
+            if (NewTeacher.hiredate > DateTime.Now)
+            {
+                return -2; // Error code for future hire date
+            }
+
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // Check for duplicate Employee Number
+                string checkQuery = "SELECT COUNT(*) FROM teachers WHERE employeenumber = @employeenum";
+                MySqlCommand checkCommand = Connection.CreateCommand();
+                checkCommand.CommandText = checkQuery;
+                checkCommand.Parameters.AddWithValue("@employeenum", NewTeacher.EmployeeNumber);
+                int count = Convert.ToInt32(checkCommand.ExecuteScalar());
+                if (count > 0)
+                {
+                    return -3; // Error code for duplicate employee number
+                }
+
+                // Insert the teacher into the database
+                string insertQuery = @"
+            INSERT INTO teachers (teacherfname, teacherlname, employeenumber, hiredate, salary)
+            VALUES (@firstname, @lastname, @employeenum, @date, @salary)";
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = insertQuery;
+
+                // Add parameters
+                Command.Parameters.AddWithValue("@firstname", NewTeacher.TeacherFName);
+                Command.Parameters.AddWithValue("@lastname", NewTeacher.TeacherLName);
+                Command.Parameters.AddWithValue("@employeenum", NewTeacher.EmployeeNumber);
+                Command.Parameters.AddWithValue("@date", NewTeacher.hiredate);
+                Command.Parameters.AddWithValue("@salary", NewTeacher.salary);
+
+                // Execute the insert query
+                Command.ExecuteNonQuery();
+
+                // Retrieve the last inserted ID
+                return Convert.ToInt32(Command.LastInsertedId);
+            }
+        }
+        /// <summary>
+        /// Deletes a teacher by their ID.
+        /// </summary>
+        /// <example>
+        /// DELETE api/TeacherAPI/DeleteTeacher/13
+        /// </example>
+        /// <param name="TeacherId">The ID of the teacher to delete</param>
+        /// <returns>The number of rows affected</returns>
+        [HttpDelete(template: "DeleteTeacher/{TeacherId}")]
+        public int DeleteTeacher(int TeacherId)
+        {
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // Define the SQL query to delete the teacher
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = "DELETE FROM teachers WHERE teacherid = @id";
+                Command.Parameters.AddWithValue("@id", TeacherId);
+
+                // Execute the query and return the number of rows affected
+                return Command.ExecuteNonQuery();
+            }
         }
     }
 }

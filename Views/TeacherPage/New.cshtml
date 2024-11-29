@@ -1,0 +1,56 @@
+﻿@if (TempData["ErrorMessage"] != null)
+{
+    <!-- Display an error message if TempData["ErrorMessage"] is set -->
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    <!-- This message appears if validation or processing fails in the controller -->
+}
+
+<!-- Title for the page -->
+<h1>Add a new Teacher</h1>
+
+<!-- Form for adding a new teacher -->
+<form method="POST" action="/TeacherPage/Create">
+    <!-- Sends a POST request to the TeacherPage/Create action in the controller -->
+    <!-- Input field for the teacher's first name -->
+    <div>
+        <label for="TeacherFName">Teacher First Name:</label>
+        <input type="text" name="TeacherFName" id="TeacherFName" required />
+        <!-- 'required' ensures the field cannot be left blank -->
+    </div>
+
+    <!-- Input field for the teacher's last name -->
+    <div>
+        <label for="TeacherLName">Teacher Last Name:</label>
+        <input type="text" name="TeacherLName" id="TeacherLName" required />
+        <!-- 'required' ensures the field cannot be left blank -->
+    </div>
+
+    <!-- Input field for the employee number -->
+    <div>
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="text" name="EmployeeNumber" id="EmployeeNumber" required />
+        <!-- 'required' ensures the field cannot be left blank -->
+    </div>
+
+    <!-- Input field for the hire date -->
+    <div>
+        <label for="hiredate">Hire Date:</label>
+        <input type="date" name="hiredate" id="hiredate" required />
+        <!-- 'required' ensures the field cannot be left blank -->
+        <!-- 'type="date"' provides a date picker for better user experience -->
+    </div>
+
+    <!-- Input field for the salary -->
+    <div>
+        <label for="salary">Salary:</label>
+        <input type="number" name="salary" id="salary" required step="0.01" />
+        <!-- 'required' ensures the field cannot be left blank -->
+        <!-- 'step="0.01"' ensures the salary input allows decimals (e.g., 50000.75) -->
+    </div>
+
+    <!-- Submit button to add the teacher -->
+    <div>
+        <input type="submit" value="Add Teacher" />
+        <!-- Clicking this button submits the form to the controller -->
+    </div>
+</form>

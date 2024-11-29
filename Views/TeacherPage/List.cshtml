@@ -1,8 +1,20 @@
 ﻿@model IEnumerable<Cumulative1.Models.Teacher>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <p class="alert alert-danger">@TempData["ErrorMessage"]</p>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p class="alert alert-success">@TempData["SuccessMessage"]</p>
+}
+
+
 <div style="background-color: midnightblue; padding: 1em 0;">
     <h1 style="font-size: 48px; color: lightcyan; text-align: center; margin: 0;">Teachers</h1>
 </div>
+<a href="/TeacherPage/New">Add New Teacher</a>
 
 @foreach (Cumulative1.Models.Teacher CurrentTeacher in Model)
 {
@@ -21,8 +33,7 @@
         /* Link styling */
         .teacher-link {
             font-size: 18px;
-            color: #007bff;
-            text-decoration: none;
+            color: #007bff;            text-decoration: none;
             font-weight: bold;
         }
 
@@ -32,7 +43,8 @@
             text-decoration: underline;
         }
     </style>
-
+    
+   
     <div class="teacher-card">
         <a href="/TeacherPage/Show/@CurrentTeacher.TeacherId" class="teacher-link">
             @CurrentTeacher.TeacherFName @CurrentTeacher.TeacherLName

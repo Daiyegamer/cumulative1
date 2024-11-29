@@ -16,7 +16,7 @@
         public DateTime hiredate { get; set; }
         //Teacher salary
         public double salary { get; set; } 
-        //Teacher Course Info
-        public string Courses { get; set; }
+        
+        
     }
 }

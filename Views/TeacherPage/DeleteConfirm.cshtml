@@ -1,0 +1,30 @@
+﻿@model Cumulative1.Models.Teacher
+
+<!-- Check if the Model (Teacher) is null -->
+@if (Model == null)
+{
+    <div>
+        <!-- If the Model is null, display an error message to the user -->
+        <p>
+            The teacher you are trying to delete could not be found.
+            <!-- Provide a link to return the user to the teacher list -->
+            <a href="/TeacherPage/List">Return to List</a>
+        </p>
+    </div>
+}
+else
+{
+    <div>
+        <!-- Display a confirmation message for deleting the teacher -->
+        <h1>Are you sure you want to delete @Model.TeacherFName @Model.TeacherLName?</h1>
+
+        <!-- A form to confirm the deletion -->
+        <form method="post" action="/TeacherPage/Delete/@Model.TeacherId">
+            <!-- When the user submits the form, a POST request is sent to delete the teacher -->
+            <button type="submit">Yes, Delete</button>
+        </form>
+
+        <!-- Provide a cancel option that redirects the user back to the teacher list -->
+        <a href="/TeacherPage/List">Cancel</a>
+    </div>
+}
