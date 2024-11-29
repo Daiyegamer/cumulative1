@@ -60,27 +60,75 @@ Added Read functionality for Courses
 
 CUMULATIVE 2
 
-Added Add and delete funtionality for teachers
+Added Functionality in Cumulative 2
+
+Add Teacher:
+
+Web page to add new teacher records.
+
+Validation for:
+
+Empty names.
+
+Hire dates in the future.
+
+Duplicate employee numbers.
+
+Delete Teacher:
+
+Web page to confirm and delete teacher records.
+
+Error handling for cases where the teacher does not exist.
+
+Error Handling:
 
 
-Added Testing API that adds a Teacher using POST Data and Curl commands
+Detailed error messages for the following cases:
+
+Empty teacher name.
+
+Future hire date.
+
+Duplicate employee numbers.
+
+Attempting to delete a non-existent teacher.
+
+API Testing:
+
+Testing API for adding a teacher using POST with cURL commands.
+
+Testing API for deleting a teacher using DELETE with cURL commands.
+
+Web Page Testing:
+
+Verified pages for: 
+
+Adding a teacher.
+
+Deleting a teacher (confirmation and success pages).
+
+Handled edge cases and displayed appropriate error messages.
+
+Read Functionality:
+
+Added support for displaying Students and Courses data.
+
+Expanded functionality for listing and displaying related records.
+
+Evidence of Testing
+
+Testing was performed for all functionalities, and screenshots are provided as a PDF file. Testing highlights include:
 
 
-Added Testing for  API that deletes a Teacher Using Curl commands
+API Testing with cURL Commands:
 
 
-Added Testing for  web page that allows a user to enter new Teacher information
+Add teacher: Validated successful additions and error scenarios (empty name, duplicate employee number, future hire date).
 
+Delete teacher: Verified successful deletions and handling non-existent teacher records.
 
-Added Testing web page that confirms the action to delete a Teacher
+Web Page Testing:
 
+Added teacher: Verified form validation, error handling, and successful record addition.
 
-Added error handling on Delete when trying to delete a teacher that does not exist, Added Testing Screenshots
-
-
-Added Error Handling on Add when the Teacher Name is empty, Added Testing Screenshots
-
-Added  Error Handling on Add when the Teacher Hire Date is in the future, Added Testing Screenshots
-
-Added Error Handling on Add when the Employee Number is already taken by a different Teacher, Added Testing Screenshots
-
+Delete teacher: Verified confirmation page, successful deletion, and error handling for missing records.
