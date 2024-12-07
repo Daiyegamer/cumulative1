@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\views\\teacherpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:views\\teacherpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\views\\teacherpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:views\\teacherpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\controllers\\teacherapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:controllers\\teacherapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\views\\teacherpage\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,12 +27,16 @@
       "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:views\\teacherpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\views\\teacherpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:views\\teacherpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\views\\teacherpage\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:views\\teacherpage\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\cumulative 1\\backend-cumulative-1\\cumulative1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BADB465-C6C8-4AF7-91FA-EA45171E6CDD}|cumulative1.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,95 +46,121 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T04:58:05.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\TeacherPage\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\Edit.cshtml",
+              "RelativeToolTip": "Views\\TeacherPage\\Edit.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAYwIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T03:46:38.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Show.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\Show.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\Show.cshtml",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\Show.cshtml",
               "RelativeToolTip": "Views\\TeacherPage\\Show.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAACIAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-26T04:20:41.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DeleteConfirm.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\DeleteConfirm.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\DeleteConfirm.cshtml",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\DeleteConfirm.cshtml",
               "RelativeToolTip": "Views\\TeacherPage\\DeleteConfirm.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-26T01:53:59.896Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "New.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\New.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\New.cshtml",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\New.cshtml",
               "RelativeToolTip": "Views\\TeacherPage\\New.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-23T17:16:25.405Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TeacherPageController.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\TeacherPageController.cs",
               "RelativeDocumentMoniker": "Controllers\\TeacherPageController.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\TeacherPageController.cs",
               "RelativeToolTip": "Controllers\\TeacherPageController.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAmwH8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAgwOIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T17:06:10.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "List.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\List.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\List.cshtml",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Views\\TeacherPage\\List.cshtml",
               "RelativeToolTip": "Views\\TeacherPage\\List.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-23T16:59:37.232Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TeacherApi.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\TeacherApi.cs",
               "RelativeDocumentMoniker": "Controllers\\TeacherApi.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Controllers\\TeacherApi.cs",
               "RelativeToolTip": "Controllers\\TeacherApi.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAqwCUAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAABMBAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T20:40:39.983Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Teacher.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Models\\Teacher.cs",
               "RelativeDocumentMoniker": "Models\\Teacher.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\CUmulative 1\\Backend-Cumulative-1\\cumulative1\\Models\\Teacher.cs",
               "RelativeToolTip": "Models\\Teacher.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T19:11:19.832Z",
               "EditorCaption": ""

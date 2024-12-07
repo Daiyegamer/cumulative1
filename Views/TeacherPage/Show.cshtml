@@ -41,14 +41,67 @@
             color: darkblue;
             font-size: 18px;
         }
+
+        .links {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f8ff; /* Light blue background for the nav section */
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            .links a {
+                font-weight: bold;
+                font-size: 16px;
+                color: darkblue; /* Default text color for links */
+                text-decoration: none; /* Remove underline for a clean look */
+                padding: 8px 15px;
+                border: 2px solid transparent; /* Adds spacing and hover effect */
+                border-radius: 5px;
+                transition: all 0.3s ease-in-out; /* Smooth transition effect */
+            }
+
+                .links a:hover {
+                    background-color: darkblue; /* Dark blue background on hover */
+                    color: white; /* White text on hover */
+                    border-color: lightcyan; /* Light cyan border on hover */
+                }
+
+                .links a:active {
+                    transform: scale(0.98); /* Slight scaling effect for click */
+                }
+
+            .links span {
+                display: inline-block;
+                margin: 0 10px; /* Spacing between links */
+            }
+
+        .link1 .link2 .link3{
+            background-color: aliceblue;
+
+
+        }
     </style>
 
     <div class="teacher-container">
         <!-- Display the teacher's full name -->
         <h1 class="teacher-name">@Model.TeacherFName @Model.TeacherLName</h1>
 
-        <!-- Provide a delete confirmation link -->
-        <a href="/TeacherPage/DeleteConfirm/@Model.TeacherId">Delete</a>
+       
+        <nav class="links">
+            <span class="link1">
+            <a href="/TeacherPage/DeleteConfirm/@Model.TeacherId">Delete</a>
+            </span>
+            <span class="link2">
+            <a href="/TeacherPage/Edit/@Model.TeacherId">Edit</a>
+            </span>
+            <span class="link3">
+            <a href="/TeacherPage/List">Back to List</a>
+            </span>
+        </nav>
+
 
         <!-- Display teacher details -->
         <p class="teacher-details">
@@ -60,7 +113,9 @@
         <p class="teacher-details">
             <span class="teacher-fields">Salary:</span> $@Model.salary
         </p>
-    </div>
+
+     </div>
+     
 }
 else
 {

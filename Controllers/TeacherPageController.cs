@@ -122,6 +122,108 @@ namespace Cumulative1.Controllers
 
             TempData["SuccessMessage"] = "Teacher successfully deleted.";
             return RedirectToAction("List");
+
+        }
+        /// <summary>
+        /// Displays the Edit page for a specific teacher.
+        /// </summary>
+        /// <param name="id">The unique identifier of the teacher to edit.</param>
+        /// <returns>
+        /// The "Edit" view with the teacher's details if the teacher exists. 
+        /// If the teacher does not exist, redirects to the "List" page with an error message.
+        /// </returns>
+        /// <example>
+        /// Example URL: /TeacherPage/Edit/10
+        /// If the teacher with ID 10 exists, the method fetches their details and returns the "Edit" view.
+        /// If not, the method redirects to the "List" page with the error message:
+        /// "The teacher you are trying to edit does not exist."
+        /// </example>
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Teacher SelectedTeacher = _api.FindTeacher(id);
+
+            if (SelectedTeacher == null)
+            {
+                TempData["ErrorMessage"] = "The teacher you are trying to edit does not exist.";
+                return RedirectToAction("List");
+            }
+
+            return View(SelectedTeacher);
+        }
+
+        /// <summary>
+        /// Updates the details of a specific teacher.
+        /// </summary>
+        /// <param name="id">The unique identifier of the teacher to update.</param>
+        /// <param name="TeacherFName">The first name of the teacher (required).</param>
+        /// <param name="TeacherLName">The last name of the teacher (required).</param>
+        /// <param name="EmployeeNumber">The unique employee number of the teacher (required).</param>
+        /// <param name="hiredate">The hire date of the teacher (cannot be in the future).</param>
+        /// <param name="salary">The salary of the teacher (must be zero or greater).</param>
+        /// <returns>
+        /// Redirects to the "Show" page if the update is successful, or back to the "Edit" page with error messages if validation fails or an error occurs.
+        /// </returns>
+        /// <example>
+        /// Example Input:
+        /// id = 10
+        /// TeacherFName = "John"
+        /// TeacherLName = "Doe"
+        /// EmployeeNumber = "EMP123"
+        /// hiredate = "2023-01-01"
+        /// salary = 45000.00
+        ///
+        /// Workflow:
+        /// 1. Validates input parameters.
+        /// 2. Calls `_api.UpdateTeacher` to update the teacher in the database.
+        /// 3. If successful, redirects to `/TeacherPage/Show/10` with the success message:
+        ///    "Teacher updated successfully."
+        /// 4. If validation fails, redirects back to `/TeacherPage/Edit/10` with appropriate error messages.
+        /// </example>
+        [HttpPost]
+        public IActionResult Update(int id, string TeacherFName, string TeacherLName, string EmployeeNumber, DateTime hiredate, double salary)
+        {
+            // Input Validation:
+            if (string.IsNullOrWhiteSpace(TeacherFName) || string.IsNullOrWhiteSpace(TeacherLName))
+            {
+                TempData["ErrorMessage"] = "Teacher's first name and last name cannot be empty.";
+                return RedirectToAction("Edit", new { id = id });
+            }
+
+            if (hiredate > DateTime.Now)
+            {
+                TempData["ErrorMessage"] = "Hire date cannot be in the future.";
+                return RedirectToAction("Edit", new { id = id });
+            }
+
+            if (salary < 0)
+            {
+                TempData["ErrorMessage"] = "Salary cannot be less than 0.";
+                return RedirectToAction("Edit", new { id = id });
+            }
+
+            // Construct a Teacher object with the updated values.
+            Teacher UpdatedTeacher = new Teacher
+            {
+                TeacherFName = TeacherFName,
+                TeacherLName = TeacherLName,
+                EmployeeNumber = EmployeeNumber,
+                hiredate = hiredate,
+                salary = salary
+            };
+
+            // Call the API to update the teacher.
+            int result = _api.UpdateTeacher(id, UpdatedTeacher);
+
+            // Check the result of the update operation.
+            if (result <= 0)
+            {
+                TempData["ErrorMessage"] = "An unexpected error occurred while updating the teacher.";
+                return RedirectToAction("Edit", new { id = id });
+            }
+
+            TempData["SuccessMessage"] = "Teacher updated successfully.";
+            return RedirectToAction("Show", new { id = id });
         }
 
     }

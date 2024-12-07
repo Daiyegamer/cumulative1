@@ -1,0 +1,130 @@
+﻿@model Cumulative1.Models.Teacher
+
+<!-- Display TempData messages for errors or success -->
+@if (TempData["ErrorMessage"] != null)
+{
+    // TempData["ErrorMessage"] contains server-side validation or update errors
+    <p class="alert alert-danger">@TempData["ErrorMessage"]</p>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    // TempData["SuccessMessage"] contains a success message if the update was successful
+    <p class="alert alert-success">@TempData["SuccessMessage"]</p>
+}
+
+<!-- Styling for navigation links and page title -->
+<style>
+    .navlink {
+        font-weight: bold;
+        color: blue;
+        text-align: center;
+        margin-bottom: 20px;
+        background-color: antiquewhite;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    h2 {
+        font-weight: bold;
+        color: lightcyan;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: darkblue;
+        padding: 8px;
+        border-radius: 5px;
+    }
+</style>
+
+<!-- Inline error message container for client-side validation -->
+<div id="error-messages" style="color: red; margin-bottom: 10px;"></div>
+
+<div id="containershow">
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Link to navigate back to the Teacher's details page -->
+        <a class="navlink" href="/TeacherPage/Show/@Model.TeacherId">Back</a>
+    </nav>
+
+    <!-- Page Title -->
+    <h2>Edit Teacher</h2>
+
+    <!-- Edit Teacher Form -->
+    <form id="teacherForm" method="POST" action="/TeacherPage/Update/@Model.TeacherId">
+        <!-- First Name Field -->
+        <div class="inputrow">
+            <label for="TeacherFname">First Name:</label>
+            <input type="text" id="TeacherFname" name="TeacherFName" value="@Model.TeacherFName" required />
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="inputrow">
+            <label for="TeacherLname">Last Name:</label>
+            <input type="text" id="TeacherLname" name="TeacherLName" value="@Model.TeacherLName" required />
+        </div>
+
+        <!-- Employee Number Field -->
+        <div class="inputrow">
+            <label for="EmployeeNumber">Employee Number:</label>
+            <input type="text" id="EmployeeNumber" name="EmployeeNumber" value="@Model.EmployeeNumber" required />
+        </div>
+
+        <!-- Hire Date Field -->
+        <div class="inputrow">
+            <label for="hiredate">Hire Date:</label>
+            <input type="date" name="hiredate" id="hiredate" value="@Model.hiredate.ToString("yyyy-MM-dd")" required />
+        </div>
+
+        <!-- Salary Field -->
+        <div class="inputrow">
+            <label for="salary">Salary:</label>
+            <input type="number" name="salary" id="salary" value="@Model.salary" step="0.01" required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="inputrow">
+            <button type="submit">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // JavaScript for Client-Side Validation
+    document.getElementById("teacherForm").addEventListener("submit", function (event) {
+        // Get form input values
+        const firstName = document.getElementById("TeacherFname").value.trim();
+        const lastName = document.getElementById("TeacherLname").value.trim();
+        const hireDate = new Date(document.getElementById("hiredate").value);
+        const salary = parseFloat(document.getElementById("salary").value);
+
+        // Array to store validation error messages
+        let errors = [];
+
+        // Clear previous error messages
+        const errorMessages = document.getElementById("error-messages");
+        errorMessages.innerHTML = "";
+
+        // Validation checks
+        if (!firstName || !lastName) {
+            // Validate non-empty first and last names
+            errors.push("First and last names cannot be empty.");
+        }
+
+        if (hireDate > new Date()) {
+            // Validate that the hire date is not in the future
+            errors.push("Hire date cannot be in the future.");
+        }
+
+        if (isNaN(salary) || salary < 0) {
+            // Validate that salary is a valid number and non-negative
+            errors.push("Salary must be a number and zero or more.");
+        }
+
+        // Display errors if any exist and prevent form submission
+        if (errors.length > 0) {
+            // Show error messages in the inline error-messages div
+            errorMessages.innerHTML = errors.join("<br>");
+            event.preventDefault(); // Prevent the form from being submitted
+        }
+    });
+</script>

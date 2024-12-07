@@ -204,5 +204,75 @@ namespace Cumulative1.Controllers
                 return Command.ExecuteNonQuery();
             }
         }
+        /// <summary>
+        /// Updates the details of a teacher in the database.
+        /// </summary>
+        /// <param name="TeacherId">The unique identifier of the teacher to update.</param>
+        /// <param name="TeacherData">
+        /// A Teacher object containing the updated details of the teacher. 
+        /// Fields include TeacherFName, TeacherLName, EmployeeNumber, hiredate, and salary.
+        /// </param>
+        /// <returns>
+        /// Returns the number of rows affected in the database.
+        /// - If 1: The update was successful.
+        /// - If 0: The teacher with the specified ID does not exist, and no update occurred.
+        /// </returns>
+        /// <example>
+        /// Example Input:
+        /// TeacherId = 10
+        /// TeacherData = {
+        ///     TeacherFName = "Jane",
+        ///     TeacherLName = "Doe",
+        ///     EmployeeNumber = "EMP123",
+        ///     hiredate = "2023-01-01",
+        ///     salary = 50000.00
+        /// }
+        /// Example Output:
+        /// Returns 1 if the update succeeds, or 0 if no matching teacher is found.
+        /// </example>
+        [HttpPut(template: "UpdateTeacher/{TeacherId}")]
+        public int UpdateTeacher(int TeacherId, [FromBody] Teacher TeacherData)
+        {
+            int rowsAffected; // To track the number of rows affected by the query.
+
+            // Open a connection to the database using the provided context.
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // Create a new MySQL command to execute the update statement.
+                MySqlCommand Command = Connection.CreateCommand();
+
+                // SQL Update Query:
+                // Updates the fields teacherfname, teacherlname, employeenumber, hiredate, and salary for a specific teacherid.
+                Command.CommandText = @"
+            update teachers 
+            set 
+                teacherfname = @teacherfname, 
+                teacherlname = @teacherlname, 
+                employeenumber = @employeenumber, 
+                hiredate = @date, 
+                salary = @salary 
+            where 
+                teacherid = @id";
+
+                // Add parameters to the command to prevent SQL injection and pass values securely.
+                Command.Parameters.AddWithValue("@teacherfname", TeacherData.TeacherFName);
+                Command.Parameters.AddWithValue("@teacherlname", TeacherData.TeacherLName);
+                Command.Parameters.AddWithValue("@employeenumber", TeacherData.EmployeeNumber);
+                Command.Parameters.AddWithValue("@date", TeacherData.hiredate);
+                Command.Parameters.AddWithValue("@salary", TeacherData.salary);
+                Command.Parameters.AddWithValue("@id", TeacherId);
+
+                // Execute the query and get the number of rows affected.
+                rowsAffected = Command.ExecuteNonQuery();
+            }
+
+            // Return the number of rows affected by the query:
+            // - 1 if the teacher was successfully updated.
+            // - 0 if no teacher was found with the given ID.
+            return rowsAffected;
+        }
+    
     }
 }
