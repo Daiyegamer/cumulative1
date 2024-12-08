@@ -132,3 +132,58 @@ Web Page Testing:
 Added teacher: Verified form validation, error handling, and successful record addition.
 
 Delete teacher: Verified confirmation page, successful deletion, and error handling for missing records.
+
+ADDED Cumulative 3 part of Project
+Update Teacher
+Web Page:
+A form to update teacher details (Name, Hire Date, Salary, etc.).
+Validations:
+Name cannot be empty.
+Hire Date must not be in the future.
+Salary must not be less than 0.
+API Endpoint:
+PUT /api/teachers/{id}
+Updates a teacher's information.
+Handles errors if the teacher does not exist.
+
+Evidence of Testing
+All tests were documented, and screenshots of API and web page testing are included in the accompanying PDF file.
+
+Added API Testing with cURL Commands
+
+Update Teacher:
+Tested successful updates.
+Verified error handling for:
+Non-existent teacher. (server side)
+Empty name. (client side)
+Future hire date. (client side)
+Negative salary.(client side)
+Web Page Testing
+
+Update Teacher:
+Verified form validations and error messages.
+Tested successful updates.
+Technical Documentation
+API Methods
+
+Updates teacher information with validation for empty names, future hire dates, and negative salary.
+Teacher Model Properties
+Name: string (required, non-empty)
+EmployeeNumber: int (unique)
+HireDate: DateTime (cannot be in the future)
+Salary: decimal (cannot be negative)
+
+Added Improvements
+Server-Side Error Handling:
+Added error response for updates when trying to update a non-existent teacher.
+Client-Side Error Handling:
+Validations for:
+Empty teacher name.
+Future hire dates.
+Negative salaries.
+
+Testing Evidence
+Refer to the included PDF file (testing C3.pdf) for:
+
+Screenshots of successful and error-case tests for APIs using cURL.
+Screenshots of web page form validations and success/error messages.
